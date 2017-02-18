@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{track.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <ion-title>{{artists}} - {{track.name}}</ion-title>
+    </ion-item>
+    <img src="{{ track.album.images[1].url }}">
+    <ion-row>
+      <ion-item>
+        <div item-left>Album:</div>
+        <button ion-button clear small>{{track.album.name}}</button>
+      </ion-item>
+    </ion-row>
+    <audio controls src="{{ track.preview_url }}"></audio>
+  </ion-card>
+</ion-content>
