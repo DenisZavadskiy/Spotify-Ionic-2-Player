@@ -1,15 +1,37 @@
-<ion-header >
+<ion-header>
   <ion-navbar color="primary">
     <ion-title>
       Spotify Player
     </ion-title>
   </ion-navbar>
+  <ion-searchbar (search)="search(query.value)" #query></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic Spotify App</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
+  <ion-card *ngFor="let track of tracks">
+    <div (click)="showMore(track)">
+      <ion-item>
+        <h2>{{track.name}}</h2>
+        <p>{{track.album.name}}</p>
+      </ion-item>
+
+      <img src="{{track.album.images[0].url}}">
+    </div>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <ion-note>
+            {{track.popularity}}
+          </ion-note>
+        </button>
+      </ion-col>
+      <ion-col>
+        <a ion-button icon-left clear small href="{{track.external_urls.spotify}}">
+          <ion-icon name="share-alt"></ion-icon>
+          <div>Open in Spotify</div>
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
