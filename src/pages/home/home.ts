@@ -11,6 +11,7 @@ import {TrackPage} from "../track/track";
 export class HomePage {
   tracks: any[];
   loader: any;
+  limit: string;
 
   constructor(public navCtrl: NavController,
               private spotify: SpotifyService,
@@ -20,8 +21,9 @@ export class HomePage {
   search(query) {
     this.loader = this.loadingCtrl.create();
     this.loader.present();
+    this.limit = localStorage.getItem('limit');
 
-    this.spotify.searchTracks(query, 5)
+    this.spotify.searchTracks(query, this.limit)
       .subscribe(
         (res: any) => {
           this.tracks = res.tracks.items;
@@ -38,8 +40,5 @@ export class HomePage {
     this.navCtrl.push(TrackPage, {
       track: track
     });
-  }
-
-  ngOnInit() {
   }
 }
