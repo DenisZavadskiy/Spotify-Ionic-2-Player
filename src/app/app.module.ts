@@ -6,6 +6,7 @@ import {HomePage} from '../pages/home/home';
 import {SettingsPage} from '../pages/settings/settings';
 import {TabsPage} from '../pages/tabs/tabs';
 import {TrackPage} from "../pages/track/track";
+import {AlbumPage} from "../pages/album/album";
 
 import {SpotifyService} from "../providers/spotify.service";
 
@@ -16,6 +17,7 @@ import {SpotifyService} from "../providers/spotify.service";
     HomePage,
     SettingsPage,
     TrackPage,
+    AlbumPage,
     TabsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import {SpotifyService} from "../providers/spotify.service";
     HomePage,
     SettingsPage,
     TrackPage,
+    AlbumPage,
     TabsPage
   ],
   providers: [
