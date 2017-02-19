@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>{{track.name}}</ion-title>
   </ion-navbar>
 
@@ -15,8 +15,8 @@
     <img src="{{ track.album.images[1].url }}">
     <ion-row>
       <ion-item>
-        <div item-left>Album:</div>
-        <button ion-button clear small>{{track.album.name}}</button>
+        <p item-left>Album:</p>
+        <button ion-button clear small (click)="showAlbum(track.album.id)">{{track.album.name}}</button>
       </ion-item>
     </ion-row>
     <audio controls src="{{ track.preview_url }}"></audio>

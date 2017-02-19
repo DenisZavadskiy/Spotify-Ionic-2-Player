@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {AlbumPage} from "../album/album";
 
 @Component({
   selector: 'page-track',
@@ -16,6 +17,12 @@ export class TrackPage {
 
   ionViewDidLoad() {
     this.artists = this.track.artists.map(el => el.name).join(' & ');
+  }
+
+  showAlbum(albumId) {
+    this.navCtrl.push(AlbumPage, {
+      albumId: albumId
+    });
   }
 
 }
