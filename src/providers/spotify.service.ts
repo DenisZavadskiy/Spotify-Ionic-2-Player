@@ -8,6 +8,7 @@ export class SpotifyService {
   static baseUrl: string = 'https://api.spotify.com/v1';
 
   constructor(public http: Http) {
+    localStorage.setItem('limit', '10');
   }
 
   query(URL: string, params?: Array<string>): Observable<any[]> {
@@ -20,7 +21,7 @@ export class SpotifyService {
       .map(res => res.json());
   }
 
-  search(query: string, type: string, limit: number): Observable<any[]> {
+  search(query: string, type: string, limit: string): Observable<any[]> {
     return this.query('/search', [
       `q=${query}`,
       `type=${type}`,
@@ -28,7 +29,11 @@ export class SpotifyService {
     ]);
   }
 
-  searchTracks(query: string, limit: number): Observable<any[]> {
+  searchTracks(query: string, limit: string): Observable<any[]> {
     return this.search(query, 'track', limit);
+  }
+
+  getAlbum(id: string): Observable<any[]> {
+    return this.query(`/albums/${id}`);
   }
 }
