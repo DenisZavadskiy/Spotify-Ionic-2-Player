@@ -6,13 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="dark">
     <ion-title>Settings</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-card-content>
+    <ion-title>
+      Limit
+    </ion-title>
+    <ion-range min="1" max="50" [(ngModel)]="limit" color="secondary" pin="true">
+      <ion-label range-left>1</ion-label>
+      <ion-label range-right>50</ion-label>
+    </ion-range>
+  </ion-card-content>
 </ion-content>
