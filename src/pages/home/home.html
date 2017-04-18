@@ -9,13 +9,16 @@
 
 <ion-content padding>
   <ion-card *ngFor="let track of tracks">
-    <div (click)="showMore(track)">
+    <div>
       <ion-item>
         <h2>{{track.name}}</h2>
         <p>{{track.album.name}}</p>
+        <button ion-button clear item-right icon-only (click)="addToPlaylist(track)">
+          <ion-icon name="add"></ion-icon>
+        </button>
       </ion-item>
 
-      <img src="{{track.album.images[0].url}}">
+      <img src="{{track.album.images[0].url}}" (click)="showMore(track)">
     </div>
     <ion-row>
       <ion-col>
